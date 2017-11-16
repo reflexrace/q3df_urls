@@ -1,0 +1,6 @@
+pak1.pk3
+https://github.com/nrempel/q3-server/raw/master/baseq3/pak1.pk3
+pak2.pk3
+https://github.com/nrempel/q3-server/raw/master/baseq3/pak2.pk3
+pak3.pk3
+https://github.com/nrempel/q3-server/raw/master/baseq3/pak3.pk3
