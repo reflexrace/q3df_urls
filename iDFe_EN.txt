@@ -1,0 +1,113 @@
+dfengine - https://q3defrag.org/files/dfengine
+ioq3 - https://ioquake3.org | https://github.com/ioquake/ioq3
+iodfe - https://github.com/runaos/iodfe
+quake3e - https://github.com/ec-/Quake3e
+
+What is taken from dfengine:
+
+\con_height [0/1.0] - default console height as a fractional value +alt +shift
+
+\con_useshader & \con_rgb & \con_opacity = Moved to 1 cvar
+\cl_conColor [RRR GGG BBB AAA] - custom console color, non-archived, use \seta command to set archive flag and store in config (q3e)
+default [60 60 70 220]
+\con_useshader = \cl_conColor ""
+\cl_MapAutoDownload [0/1] - (Reworked and now can use https)
+\download + \dlmap (reworked) - \dlmap is the same as \download but also will check for map existence
+
+What is taken from iodfe:
+
+snap hud
+scr_hud_snap_draw 1 - snapping hud, shows zones of possible acceleration (for 8 ms frametime)
+scr_hud_snap_auto - auto-shifting angle of the hud for different strafe styles
+scr_hud_snap_def - offset with no keys pressed or with scr_hud_snap_auto 0
+scr_hud_snap_speed - calculate zones for the stated speed instead
+colors and position settings:
+scr_hud_snap_rgba1
+scr_hud_snap_rgba2
+scr_hud_snap_y
+scr_hud_snap_h
+
+scr_hud_pitch - angle marks, setting it to "-15 70" for example will put two marks at -15 and 70 degrees of pitch
+colors and position settings:
+scr_hud_pitch_rgba
+scr_hud_pitch_thickness
+scr_hud_pitch_width
+scr_hud_pitch_x
+
+\con_timestamp [0/1] - adds a timestamp at each message in console
+\con_timedisplay [0-3] - displays time at input line (1), at right bottom console corner (2) or at both places (3)
+\con_date_usa [0/1] - date DMY or YMD (new)
+
+\con_completemapnames [0/1] - toggles /map and /devmap autocompletion (ioq3)
+
+\s_muteWhenUnfocused 0|1 - mute sound when window is unfocused
+\s_muteWhenMinimized 0|1 - mute sound when window is minimized
+
+ctrl+enter in console sends message with /team_say
+ctrl+shift+enter sends it with /tell to df_mp_trackplayernum
+
+\in_forceCharset 0|1|2 - try to translate non-ASCII chars in keyboard input (1) or force EN/US keyboard layout (2) (q3e)
+
+\r_xpos & \r_ypos - Set the position of the window and automatically store them
+
+in /modelist added more resolutions
+
+\con_notifylines, \con_notifykeep, \con_notifyX, \con_notifyY - settings chat messages (fixed)
+\con_notifyXY_enable - the switch of the possibility of using \ con_notifyX, \ con_notifyY (default is 0)
+Now correctly displays the position on any resolutions with the same parameters
+
+The physics is the same as in quake3.exe, there are no jumps along the ramps at the wall as on q3wc1
+
+What's new:(q3e)
+a lot of security, performance and bug fixes
+much improved autocompletion (map, demo, exec and other commands)
+persistent console history
+raw mouse input support, enabled automatically instead of DirectInput(\in_mouse 1) on Windows XP and newer windows operating systems
+unlagged mouse processing, can be reverted by setting \in_lagged 1
+MOUSE4 and MOUSE5 works in \in_mouse -1 mode
+\in_minimize - hotkey for minimize/restore main window (direct replacement for Q3Minimizer)
+\in_nograb 0|1 - do not capture mouse in game, may be useful during online streaming
+\screenshotBMP and \screenshotBMP clipboard commands
+hardcoded PrintScreen key - for "\screenshotBMP clipboard"
+hardcoded Shift+PrintScreen - for "\screenshotBMP"
+\com_maxfpsUnfocused - will save cpu when inactive, set to your desktop refresh rate, for example
+\com_maxfpsMinimized - will save cpu when minimized, do not set it less than 10-20 since it may cause network lags and possible 1/x delay (only once) when returning to game
+\com_yieldCPU - will save cpu when game active, useful only if you using com_maxfps to limit framerate
+\com_affinityMask - bind Quake3e process to bitmask-specified CPU core(s)
+\com_skipIdLogo 0|1- skip playing idlogo movie at startup
+\r_hdr - use high dynamic range pixel format for framebuffers, improves visual quality [ https://imgur.com/a/R1yTE | https://imgur.com/a/Kjnwb ]
+\r_fbo 0|1 - use framebuffer objects, enables gamma correction in windowed mode and allows arbitrary size (i.e. greater than logical desktop resolution) screenshot/video capture, required for high-quality bloom (2,3)
+\r_bloom 0|1|2|3 - light bloom postprocessing effect:
+   1 - 'OpenArena' legacy bloom
+   2 - new high-quality bloom, uses FBO and ARB fragment shaders, requires \r_fbo 1
+   3 - same as 2 but applies to HUD elements too
+\r_dlightMode 0|1|2 - new per-pixel dynamic lights
+   0 - VQ3 'fake' dynamic lights
+   1 - new high-quality per-pixel dynamic lights, slightly faster than VQ3's on modern hardware
+   2 - same as 1 but applies to all MD3 models too
+\r_modeFullscreen - dedicated mode string for fullscreen mode, set to -2 to use desktop resolution, set empty to use \r_mode in all cases
+\r_neatsky 0|1 - nopicmip for skyboxes
+\r_ext_multisample 0|2|4|6|8 - multi-sample anti-aliasing
+\cl_conColor [RRR GGG BBB AAA] - custom console color, non-archived, use \seta command to set archive flag and store in config
+\in_forceCharset 0|1|2 - try to translate non-ASCII chars in keyboard input (1) or force EN/US keyboard layout (2)
+\sv_levelTimeReset 0|1 - reset or do not reset leveltime after new map loads, when enabled - fixes gfx for clients affected by "frameloss" bug, however it may be necessary disable in case of troubles with GTV
+negative \r_overBrightBits - force hardware gamma in windowed mode
+\r_nomip 0|1- apply picmip only on worldspawn textures
+\r_mapGreyScale 0|1 - recolor map to gray colors ( test it in q3dm6 )
+application now uses correct gamma if it looses/recieves focus, also sets correct video mode during minimizing/restoring (not actual with \r_rbo 1)
+application now sets desktop refresh rate in game in case if desktop and game resolutions is equal
+less spam in console (try to set "\developer 1" to see what important things you missing)
+faster shader loading, tolerant to non-fatal errors
+reduced memory usage for dedicated servers
+fast client downloads (http/ftp redirection)
+fast client-initiated downloads (\download and dlmap commands)
+you can use \record during \demo playback
+conditional shader stages
+linear dynamic lights
+
+\in_minimize
+
+cvar that specifies hotkey for fast minimize/restore main windows, set values in form
+  \in_minimize "ctrl+z"
+  \in_minimize "lshift+ralt+\"
+  or so then do \in_restart to apply changes.
