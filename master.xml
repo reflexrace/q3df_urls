@@ -1,0 +1,80 @@
+<master>
+    <task name="Game Data">
+        <download url="http://files.anitalink.com/gamecache/quake3/baseq3/pak0.pk3" to="baseq3\pak0.pk3"/>
+        <download url="q3netpack" to="baseq3\zz-q3netpack.pk3"/>
+        <download url="missionpack-textures" to="baseq3\zz-q3netpack.pk3"/>
+    </task>
+
+    <task name="Point Release 1.32c Full">
+        <download url="http://files.anitalink.com/gamecache/quake3/baseq3/pak1.pk3" to="baseq3\pak1.pk3"/>
+        <download url="http://files.anitalink.com/gamecache/quake3/baseq3/pak2.pk3" to="baseq3\pak2.pk3"/>
+        <download url="http://files.anitalink.com/gamecache/quake3/baseq3/pak3.pk3" to="baseq3\pak3.pk3"/>
+        <download url="http://files.anitalink.com/gamecache/quake3/baseq3/pak4.pk3" to="baseq3\pak4.pk3"/>
+        <download url="http://files.anitalink.com/gamecache/quake3/baseq3/pak5.pk3" to="baseq3\pak5.pk3"/>
+        <download url="http://files.anitalink.com/gamecache/quake3/baseq3/pak6.pk3" to="baseq3\pak6.pk3"/>
+        <download url="http://files.anitalink.com/gamecache/quake3/baseq3/pak7.pk3" to="baseq3\pak7.pk3"/>
+        <download url="http://files.anitalink.com/gamecache/quake3/baseq3/pak8.pk3" to="baseq3\pak8.pk3"/>
+
+    </task>
+
+    <task name="DeFRaG 1.91.25">        
+        <download url="https://q3defrag.org/files/defrag/defrag_1.91.25.zip" to="defrag_1.91.25.zip"/>
+        <extract path="defrag_1.91.25.zip" to="."/>
+        <delete path="defrag_1.91.25.zip"/>
+        <url_shortcut url="https://www.q3df.org/serverlist" save_to="q3df.org - Serverlist"/>
+
+    </task>
+
+    <task name="DeFRaG Engines">
+        <task name="iDFe">
+            <download url="https://github.com/nrempel/q3-server/raw/master/baseq3/pak1.pk3" to="iDFe.exe"/>
+            <download url="https://github.com/nrempel/q3-server/raw/master/baseq3/pak1.pk3" to="iDFe_EN.txt"/>
+        </task>
+        <task name="iodfe">
+            <download url="https://github.com/nrempel/q3-server/raw/master/baseq3/pak1.pk3" to="iodfe.exe"/>
+            <download url="https://github.com/nrempel/q3-server/raw/master/baseq3/pak1.pk3" to="iDFe_readme.txt"/>
+        </task>
+        <task name="dfengine 1.08">
+            <download url="https://q3defrag.org/files/dfengine/dfengine_1.08_win.zip" to="dfengine_1.08_win.zip"/>
+            <extract path="dfengine_1.08_win.zip" to="."/>
+            <delete path="dfengine_1.08_win.zip"/>
+        </task>
+    </task>
+
+    <task name="Addon Packs (Skins/Sounds/Models)">
+        <task name="zzz-dez.defrag.pk3">
+            <download url="https://github.com/nrempel/q3-server/raw/master/baseq3/pak1.pk3" to="iDFe.exe"/>
+        </task>
+        <task name="zzz-pack_Enter.pk3">
+            <download url="https://github.com/nrempel/q3-server/raw/master/baseq3/pak1.pk3" to="iDFe.exe"/>
+        </task>
+        <task name="zzz-w00dy-.pk3">
+            <download url="https://github.com/nrempel/q3-server/raw/master/baseq3/pak1.pk3" to="iDFe.exe"/>
+        </task>
+    </task>
+
+    <task name="Utilities">
+        <task name="Netradiant Level Editor">
+             <download url="https://goo.gl/UyXRUJ" to="utilities\net_radiant_custom.7z"/>
+        </task>
+        <task name="DeFRaG URL Launcher">
+            <resource name="defrag_url_launcher_installer_0040" to="utilities\defrag_url_launcher_installer_0040.exe"/>
+        </task>
+
+    </task>
+
+    <task name="required_files" hidden="true">
+        <resource name="libcurl" to="libcurl.dll"/>
+        <resource name="openal32" to="openal32.dll"/>
+        <resource name="SDL" to="sdl.dll"/>
+        <resource name="mapmedia_TA" to="baseq3\zz-mapmedia-TA.pk3"/>
+        <resource name="zzzz_highres_font" to="defrag\zzzz-highres_font.pk3"/>
+        <write_text to="defrag\q3config.cfg">hello
+world
+i wonder
+if this works lel</write_text>
+       
+    </task>
+ 
+
+</master>
