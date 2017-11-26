@@ -3,6 +3,8 @@
         <download url="http://files.anitalink.com/gamecache/quake3/baseq3/pak0.pk3" to="baseq3\pak0.pk3"/>
         <download url="https://github.com/reflexrace/q3df_urls/raw/master/zz-q3netpack.pk3" to="baseq3\zz-q3netpack.pk3"/>
         <download url="https://github.com/reflexrace/q3df_urls/raw/master/pak0-TA.pk3" to="baseq3\pak0-TA.pk3"/>
+         <write_text to="baseq3\scripts\shaderlist.txt">// this file lists all shader files, visible by editing tools
+q3shadersCopyForRadiant</write_text>
     </task>
 
     <task name="Point Release 1.32c Full" bytes="26076349">
@@ -95,13 +97,18 @@ seta r_textureMode "GL_LINEAR_MIPMAP_LINEAR"</write_text>
 
     <task name="DeFRaG Engines">
         <task name="iDFe" bytes="1660928">
-            <download url="https://github.com/reflexrace/q3df_urls/raw/master/iDFe_17.9.9.exe" to="iDFe.exe"/>
-            <download url="https://raw.githubusercontent.com/reflexrace/q3df_urls/master/iDFe_EN.txt" to="iDFe_EN.txt"/>
+            <download url="https://github.com/reflexrace/q3df_urls/raw/master/idfe/iDFe_17.9.9.exe" to="iDFe.exe"/>
+            <download url="https://raw.githubusercontent.com/reflexrace/q3df_urls/master/idfe/iDFe_EN.txt" to="iDFe_EN.txt"/>
         </task>
-        <task name="iodfe" bytes="2532061">
-            <download url="https://github.com/reflexrace/q3df_urls/raw/master/iodfengine.x86-v3.exe" to="iodfengine.x86.exe"/>
-            <download url="https://raw.githubusercontent.com/reflexrace/q3df_urls/master/iodfengine_README.txt" to="iodfengine_README.txt"/>
+
+        <task name="iodfe" bytes="3237650">
+            <download url="https://github.com/reflexrace/q3df_urls/raw/master/iodfe/iodfengine.x86-v3.exe" to="iodfengine.x86.exe"/>
+            <download url="https://raw.githubusercontent.com/reflexrace/q3df_urls/master/iodfe/iodfengine_README.txt" to="iodfengine_README.txt"/>
+            <download url="https://github.com/reflexrace/q3df_urls/raw/master/iodfe/libcurl.dll" to="libcurl.dll"/>
+            <download url="https://github.com/reflexrace/q3df_urls/raw/master/iodfe/SDL.dll" to="SDL.dll"/>
+            <download url="https://github.com/reflexrace/q3df_urls/raw/master/iodfe/OpenAL32.dll" to="OpenAL32.dll"/>
         </task>
+
         <task name="dfengine 1.08" bytes="612086">
             <download url="https://q3defrag.org/files/dfengine/dfengine_1.08_win.zip" to="dfengine_1.08_win.zip"/>
             <extract path="dfengine_1.08_win.zip" to="."/>
@@ -121,13 +128,9 @@ seta r_textureMode "GL_LINEAR_MIPMAP_LINEAR"</write_text>
     </task>
 
     <task name="required_files" hidden="true">
-        <resource name="libcurl" to="libcurl.dll"/>
-        <resource name="openal32" to="openal32.dll"/>
-        <resource name="SDL" to="sdl.dll"/>
         <resource name="mapmedia_TA" to="baseq3\zz-mapmedia-TA.pk3"/>
         <resource name="zzzz_hd_menu" to="defrag\zzzz-hd_menu.pk3"/>
         <resource name="zzzz_highres_font" to="defrag\zzzz-highres_font.pk3"/>
-        <resource name="shaderlist" to="baseq3\scripts\shaderlist.txt"/>
         <resource name="how_to_play" to="- HOW TO PLAY -.html"/>
     </task>
  
