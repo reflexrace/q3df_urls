@@ -127,7 +127,7 @@ seta r_textureMode "GL_LINEAR_MIPMAP_LINEAR"</write_text>
              <download url="https://goo.gl/UyXRUJ" to="utilities\net_radiant_custom.7z"/>
         </task>
         <task name="DeFRaG URL Launcher" bytes="143726">
-            <resource name="defrag_url_launcher_installer_0040" to="utilities\defrag_url_launcher_installer_0040.exe"/>
+            <download url="https://github.com/reflexrace/q3df_urls/raw/master/utilities/defrag_url_launcher_installer_0040.exe" to="utilities\defrag_url_launcher_installer_0040.exe"/>
         </task>
 
     </task>
