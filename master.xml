@@ -1,11 +1,11 @@
 <master>
-    <task name="Game Data">
+    <task name="Game Data" bytes="550357672">
         <download url="http://files.anitalink.com/gamecache/quake3/baseq3/pak0.pk3" to="baseq3\pak0.pk3"/>
-        <download url="q3netpack" to="baseq3\zz-q3netpack.pk3"/>
-        <download url="missionpack-textures" to="baseq3\zz-q3netpack.pk3"/>
+        <download url="https://github.com/reflexrace/q3df_urls/raw/master/zz-q3netpack.pk3" to="baseq3\zz-q3netpack.pk3"/>
+        <download url="https://github.com/reflexrace/q3df_urls/raw/master/pak0-TA.pk3" to="baseq3\pak0-TA.pk3"/>
     </task>
 
-    <task name="Point Release 1.32c Full">
+    <task name="Point Release 1.32c Full" bytes="26076349">
         <download url="http://files.anitalink.com/gamecache/quake3/baseq3/pak1.pk3" to="baseq3\pak1.pk3"/>
         <download url="http://files.anitalink.com/gamecache/quake3/baseq3/pak2.pk3" to="baseq3\pak2.pk3"/>
         <download url="http://files.anitalink.com/gamecache/quake3/baseq3/pak3.pk3" to="baseq3\pak3.pk3"/>
@@ -17,47 +17,104 @@
 
     </task>
 
-    <task name="DeFRaG 1.91.25">        
+    <task name="DeFRaG 1.91.25" bytes="4043820">        
         <download url="https://q3defrag.org/files/defrag/defrag_1.91.25.zip" to="defrag_1.91.25.zip"/>
         <extract path="defrag_1.91.25.zip" to="."/>
         <delete path="defrag_1.91.25.zip"/>
-        <url_shortcut url="https://www.q3df.org/serverlist" save_to="q3df.org - Serverlist"/>
+        <delete path="defrag/description.txt"/>
+        <url_shortcut url="https://www.q3df.org/serverlist" save_to="- q3df.org - Serverlist"/>
+        <url_shortcut url="https%3A%2F%2Fws.q3df.org%2Fmaps%2F%3Fmap%3D%26order%3D6%26view%3D1%26desc%3D1%26show%3D50" save_to="- ws.q3df.org - Download Maps"/>
+        <url_shortcut url="https://www.q3df.org/wiki?p=16" save_to="- q3df.org - Wiki - Server Commands"/>
+        <url_shortcut url="https://discord.me/defrag" save_to="- DeFRaG Discord Channel -"/>
+        <write_text to="defrag\autoexec.cfg">exec game</write_text>
+        <write_text to="defrag\game.cfg">//auto download maps when connecting to server
+seta dl_source "http://ws.q3df.org/getpk3bymapname.php/%m"
+seta cl_mapAutoDownload "1"
+seta cl_allowdownload "0"
 
+seta r_textureMode "GL_LINEAR_MIPMAP_LINEAR"
+
+seta g_synchronousClients "0"
+seta cl_maxpackets "125"
+seta rate "25000"
+seta snaps "125"
+seta sv_floodprotect "0"
+seta sv_fps "125"
+seta com_sleepfps "125"
+seta com_maxfps "125"
+seta pmove_msec "8"
+seta com_hunkmegs "256"
+
+echo "game.cfg loaded"</write_text>
+
+        <write_text to="defrag\q3config.cfg">seta fs_game "defrag"
+seta g_synchronousClients "0"
+seta cl_allowdownload "0"
+seta cl_maxpackets "125"
+seta rate "25000"
+seta snaps "125"
+seta sv_floodprotect "0"
+seta sv_fps "125"
+seta com_sleepfps "125"
+seta com_maxfps "125"
+seta pmove_msec "8"
+seta com_hunkmegs "512"
+
+//auto download maps when connecting to server
+seta dl_source "http://ws.q3df.org/getpk3bymapname.php/%m"
+seta cl_mapAutoDownload "1"
+
+seta df_mp_NoDrawRadius "50"
+seta df_demos_ReplayMode "0"
+seta df_autorecord "1"
+
+
+seta in_mouse "3"
+seta cg_fov "120"
+seta cg_zoomfov "60"
+
+seta cg_drawCrosshair "1"
+seta cg_drawFPS "1"
+seta cg_drawTimer "1"
+
+seta r_fullscreen "0"
+seta r_customwidth "1024"
+seta r_customheight "768"
+seta r_mode "-1"
+seta r_drawSun "1"
+seta r_flares "1"
+seta r_simpleMipMaps "0"
+seta r_roundImagesDown "0"
+seta r_picmip "0"
+seta r_colorbits "32"
+seta r_texturebits "32"
+seta r_textureMode "GL_LINEAR_MIPMAP_LINEAR"</write_text>
+
+       
     </task>
 
     <task name="DeFRaG Engines">
-        <task name="iDFe">
-            <download url="https://github.com/nrempel/q3-server/raw/master/baseq3/pak1.pk3" to="iDFe.exe"/>
-            <download url="https://github.com/nrempel/q3-server/raw/master/baseq3/pak1.pk3" to="iDFe_EN.txt"/>
+        <task name="iDFe" bytes="1660928">
+            <download url="https://github.com/reflexrace/q3df_urls/raw/master/iDFe_17.9.9.exe" to="iDFe.exe"/>
+            <download url="https://raw.githubusercontent.com/reflexrace/q3df_urls/master/iDFe_EN.txt" to="iDFe_EN.txt"/>
         </task>
-        <task name="iodfe">
-            <download url="https://github.com/nrempel/q3-server/raw/master/baseq3/pak1.pk3" to="iodfe.exe"/>
-            <download url="https://github.com/nrempel/q3-server/raw/master/baseq3/pak1.pk3" to="iDFe_readme.txt"/>
+        <task name="iodfe" bytes="2532061">
+            <download url="https://github.com/reflexrace/q3df_urls/raw/master/iodfengine.x86-v3.exe" to="iodfengine.x86.exe"/>
+            <download url="https://raw.githubusercontent.com/reflexrace/q3df_urls/master/iodfengine_README.txt" to="iodfengine_README.txt"/>
         </task>
-        <task name="dfengine 1.08">
+        <task name="dfengine 1.08" bytes="612086">
             <download url="https://q3defrag.org/files/dfengine/dfengine_1.08_win.zip" to="dfengine_1.08_win.zip"/>
             <extract path="dfengine_1.08_win.zip" to="."/>
+            <move path="readme.txt" to="dfengine_readme.txt"/>
             <delete path="dfengine_1.08_win.zip"/>
         </task>
     </task>
 
-    <task name="Addon Packs (Skins/Sounds/Models)">
-        <task name="zzz-dez.defrag.pk3">
-            <download url="https://github.com/nrempel/q3-server/raw/master/baseq3/pak1.pk3" to="iDFe.exe"/>
-        </task>
-        <task name="zzz-pack_Enter.pk3">
-            <download url="https://github.com/nrempel/q3-server/raw/master/baseq3/pak1.pk3" to="iDFe.exe"/>
-        </task>
-        <task name="zzz-w00dy-.pk3">
-            <download url="https://github.com/nrempel/q3-server/raw/master/baseq3/pak1.pk3" to="iDFe.exe"/>
-        </task>
-    </task>
-
     <task name="Utilities">
-        <task name="Netradiant Level Editor">
+        <task name="Netradiant Level Editor" bytes="12603838">
              <download url="https://goo.gl/UyXRUJ" to="utilities\net_radiant_custom.7z"/>
         </task>
-        <task name="DeFRaG URL Launcher">
+        <task name="DeFRaG URL Launcher" bytes="143726">
             <resource name="defrag_url_launcher_installer_0040" to="utilities\defrag_url_launcher_installer_0040.exe"/>
         </task>
 
@@ -68,12 +125,10 @@
         <resource name="openal32" to="openal32.dll"/>
         <resource name="SDL" to="sdl.dll"/>
         <resource name="mapmedia_TA" to="baseq3\zz-mapmedia-TA.pk3"/>
+        <resource name="zzzz_hd_menu" to="defrag\zzzz-hd_menu.pk3"/>
         <resource name="zzzz_highres_font" to="defrag\zzzz-highres_font.pk3"/>
-        <write_text to="defrag\q3config.cfg">hello
-world
-i wonder
-if this works lel</write_text>
-       
+        <resource name="shaderlist" to="baseq3\scripts\shaderlist.txt"/>
+        <resource name="how_to_play" to="- HOW TO PLAY -.html"/>
     </task>
  
 
