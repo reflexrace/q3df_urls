@@ -3,7 +3,8 @@
         <download url="http://files.anitalink.com/gamecache/quake3/baseq3/pak0.pk3" to="baseq3\pak0.pk3"/>
         <download url="https://github.com/reflexrace/q3df_urls/raw/master/zz-q3netpack.pk3" to="baseq3\zz-q3netpack.pk3"/>
         <download url="https://github.com/reflexrace/q3df_urls/raw/master/pak0-TA.pk3" to="baseq3\pak0-TA.pk3"/>
-         <write_text to="baseq3\scripts\shaderlist.txt">// this file lists all shader files, visible by editing tools
+        <download url="https://github.com/reflexrace/q3df_urls/raw/master/zz-mapmedia-TA.pk3" to="baseq3\zz-mapmedia-TA.pk3"/>        
+        <write_text to="baseq3\scripts\shaderlist.txt">// this file lists all shader files, visible by editing tools
 q3shadersCopyForRadiant</write_text>
     </task>
 
@@ -24,6 +25,10 @@ q3shadersCopyForRadiant</write_text>
         <extract path="defrag_1.91.25.zip" to="."/>
         <delete path="defrag_1.91.25.zip"/>
         <delete path="defrag/description.txt"/>
+        <download url="https://github.com/reflexrace/q3df_urls/raw/master/zzzz-hd_menu.pk3" to="defrag\zzzz-hd_menu.pk3"/>
+        <download url="https://github.com/reflexrace/q3df_urls/raw/master/zzzz-highres_font.pk3" to="defrag\zzzz-highres_font.pk3"/>
+        <download url="https://raw.githubusercontent.com/reflexrace/q3df_urls/master/-%20HOW%20TO%20PLAY%20-.html" to="- HOW TO PLAY -.html"/>
+
         <url_shortcut url="https://www.q3df.org/serverlist" save_to="- q3df.org - Serverlist"/>
         <url_shortcut url="https%3A%2F%2Fws.q3df.org%2Fmaps%2F%3Fmap%3D%26order%3D6%26view%3D1%26desc%3D1%26show%3D50" save_to="- ws.q3df.org - Download Maps"/>
         <url_shortcut url="https://www.q3df.org/wiki?p=16" save_to="- q3df.org - Wiki - Server Commands"/>
@@ -126,13 +131,5 @@ seta r_textureMode "GL_LINEAR_MIPMAP_LINEAR"</write_text>
         </task>
 
     </task>
-
-    <task name="required_files" hidden="true">
-        <resource name="mapmedia_TA" to="baseq3\zz-mapmedia-TA.pk3"/>
-        <resource name="zzzz_hd_menu" to="defrag\zzzz-hd_menu.pk3"/>
-        <resource name="zzzz_highres_font" to="defrag\zzzz-highres_font.pk3"/>
-        <resource name="how_to_play" to="- HOW TO PLAY -.html"/>
-    </task>
- 
 
 </master>
